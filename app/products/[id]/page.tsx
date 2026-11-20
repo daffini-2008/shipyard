@@ -1,3 +1,5 @@
+
+import type { Metadata } from "next";
 import { getProduct, products } from "../../data/products";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -6,6 +8,26 @@ export function generateStaticParams() {
   return products.map((product) => ({
     id: product.id,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const product = getProduct(id);
+
+  if (!product) {
+    return {
+      title: "Product Not Found | ShipYard",
+    };
+  }
+
+  return {
+    title: `${product.name} | ShipYard`,
+    description: product.description,
+  };
 }
 
 export default async function ProductPage({
@@ -23,18 +45,14 @@ export default async function ProductPage({
   return (
     <main className="store-container">
       <Link href="/">← Back to collection</Link>
-
       <section className="product-detail">
         <p className="product-category">{product.category}</p>
-
         <h1>{product.name}</h1>
-
         <p>{product.description}</p>
-
         <p>Color: {product.color}</p>
-
         <h2>₹{product.price.toLocaleString("en-IN")}</h2>
       </section>
     </main>
   );
 }
+

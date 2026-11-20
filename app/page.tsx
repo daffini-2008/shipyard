@@ -1,5 +1,14 @@
+
+import dynamic from "next/dynamic";
 import { products } from "./data/products";
 import ProductCard from "./components/ProductCard";
+
+const CustomerBenefits = dynamic(
+  () => import("./components/CustomerBenefits"),
+  {
+    loading: () => <p>Loading customer benefits...</p>,
+  }
+);
 
 export default function Home() {
   return (
@@ -14,13 +23,15 @@ export default function Home() {
 
       <section className="product-section">
         <h2>Our Collection</h2>
-
         <div className="product-grid">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </section>
+
+      <CustomerBenefits />
     </main>
   );
 }
+

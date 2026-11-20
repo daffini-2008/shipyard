@@ -1,3 +1,4 @@
+
 export type Product = {
   id: string;
   name: string;
@@ -5,6 +6,7 @@ export type Product = {
   category: string;
   description: string;
   color: string;
+  image: string;
 };
 
 export const products: Product[] = [
@@ -15,6 +17,7 @@ export const products: Product[] = [
     category: "Footwear",
     description: "Comfortable everyday sneakers.",
     color: "Ocean Blue",
+    image: "/products/wave-runner.jpg",
   },
   {
     id: "cloud-headphones",
@@ -23,6 +26,7 @@ export const products: Product[] = [
     category: "Electronics",
     description: "Wireless headphones with immersive sound.",
     color: "Pearl White",
+    image: "/products/cloud-headphones.jpg",
   },
   {
     id: "urban-backpack",
@@ -31,6 +35,7 @@ export const products: Product[] = [
     category: "Accessories",
     description: "A practical backpack for everyday travel.",
     color: "Midnight Black",
+    image: "/products/urban-backpack.jpg",
   },
   {
     id: "classic-watch",
@@ -39,6 +44,7 @@ export const products: Product[] = [
     category: "Accessories",
     description: "A timeless minimalist watch.",
     color: "Silver",
+    image: "/products/classic-watch.jpg",
   },
   {
     id: "retro-camera",
@@ -47,6 +53,7 @@ export const products: Product[] = [
     category: "Electronics",
     description: "A compact camera inspired by classic photography.",
     color: "Vintage Brown",
+    image: "/products/retro-camera.jpg",
   },
   {
     id: "cozy-lamp",
@@ -55,6 +62,7 @@ export const products: Product[] = [
     category: "Home",
     description: "A warm ambient lamp for your workspace.",
     color: "Warm Beige",
+    image: "/products/cozy-lamp.jpg",
   },
 ];
 
