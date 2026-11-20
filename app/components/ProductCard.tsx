@@ -12,7 +12,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <Link href={`/products/${product.id}`} className="product-card">
       <div className="product-image-wrapper">
         <Image
-          src={product.image}
+          src={`${process.env.NODE_ENV === "production" ? "/shipyard" : ""}${product.image}`}
           alt={product.name}
           width={460}
           height={345}
